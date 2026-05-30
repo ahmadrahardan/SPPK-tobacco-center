@@ -186,4 +186,4 @@ SPK-Sentra-Tembakau/
 
 ## 📄 Lisensi
 
-Proyek ini dikembangkan untuk keperluan akademik dan penelitian pada Program Studi Teknik Informatika. Penggunaan untuk tujuan pendidikan dan penelitian diperbolehkan dengan tetap mencantumkan sumber yang sesuai.
+Proyek ini dikembangkan untuk keperluan akademik dan penelitian pada Program Studi Sistem Informasi Fakultas Ilmu Komputer Universitas Jember. Penggunaan untuk tujuan pendidikan dan penelitian diperbolehkan dengan tetap mencantumkan sumber yang sesuai.

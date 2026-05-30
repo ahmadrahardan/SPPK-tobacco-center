@@ -11,86 +11,95 @@
   </head>
 
   <body>
-    <div class="header">
-      <h1>SPK Penentuan Wilayah Sentra Produksi Tembakau</h1>
-      <p>Kabupaten Jember Menggunakan Metode SAW dan TOPSIS</p>
-    </div>
-
-    <div class="container">
-      <form
-        method="POST"
-        enctype="multipart/form-data"
-        class="form-upload-horizontal"
-      >
-        <div class="custom-file-input">
-          <label for="file" class="file-label">Pilih File CSV</label>
-          <input
-            type="file"
-            id="file"
-            name="file"
-            accept=".csv"
-            required
-            style="display: none"
-          />
+    <section class="hero">
+      <div class="hero-overlay">
+        <div class="hero-text">
+          <h1>SPK Penentuan Wilayah Sentra Produksi Tembakau</h1>
+          <p>Kabupaten Jember Menggunakan Metode SAW dan TOPSIS</p>
         </div>
+      </div>
+    </section>
 
-        <button type="submit" class="btn">Upload & Proses</button>
-      </form>
-
-      <div class="info-format">
-        <p>
-          Format kolom CSV:
-          <strong>Kecamatan</strong>,
-          <strong>Total Produksi</strong>,
-          <strong>Luas Lahan Perkebunan</strong>,
-          <strong>Kepadatan Penduduk</strong>,
-          <strong>Jarak ke Ibukota Kabupaten</strong>
+    <section class="upload-section">
+      <div class="container">
+        <h2>Upload Dataset CSV</h2>
+        <p class="section-description">
+          Unggah data tembakau Kabupaten Jember untuk melihat hasil perangkingan
+          wilayah sentra produksi menggunakan metode SAW dan TOPSIS.
         </p>
-      </div>
 
-      {% if error_message %}
-      <div class="error-message">
-        <strong>Error:</strong> {{ error_message }}
-      </div>
-      {% endif %}
-
-      <div class="results-section">
-        {% if hasil_saw or hasil_topsis %}
-
-        {% if hasil_saw %}
-        <div class="result-block">
-          <h2>Hasil Perhitungan Metode SAW</h2>
-          <p>
-            Metode SAW menghitung nilai preferensi berdasarkan hasil normalisasi
-            dan bobot setiap kriteria.
-          </p>
-          <div class="result-table">
-            {{ hasil_saw|safe }}
+        <form
+          method="POST"
+          enctype="multipart/form-data"
+          class="form-upload-horizontal"
+        >
+          <div class="custom-file-input">
+            <label for="file" class="file-label">Pilih File CSV</label>
+            <input
+              type="file"
+              id="file"
+              name="file"
+              accept=".csv"
+              required
+              style="display: none"
+            />
           </div>
-        </div>
-        {% endif %}
 
-        {% if hasil_topsis %}
-        <div class="result-block">
-          <h2>Hasil Perhitungan Metode TOPSIS</h2>
+          <button type="submit" class="btn">Upload & Proses</button>
+        </form>
+
+        <div class="info-format">
           <p>
-            Metode TOPSIS menghitung alternatif terbaik berdasarkan kedekatan
-            terhadap solusi ideal positif dan jarak terhadap solusi ideal negatif.
+            Format kolom CSV:
+            <strong>Kecamatan</strong>,
+            <strong>Total Produksi</strong>,
+            <strong>Luas Lahan Perkebunan</strong>,
+            <strong>Kepadatan Penduduk</strong>,
+            <strong>Jarak ke Ibukota Kabupaten</strong>
           </p>
-          <div class="result-table">
-            {{ hasil_topsis|safe }}
-          </div>
+        </div>
+
+        {% if error_message %}
+        <div class="error-message">
+          <strong>Error:</strong> {{ error_message }}
         </div>
         {% endif %}
 
-        {% else %}
-        <div class="info-empty">
-          Silakan upload file CSV data tembakau Kabupaten Jember untuk melihat
-          hasil perangkingan wilayah sentra produksi.
+        <div class="results-section">
+          {% if hasil_saw or hasil_topsis %}
+
+          {% if hasil_saw %}
+          <div class="result-block">
+            <h2>Hasil Perhitungan Metode SAW</h2>
+            <p>
+              Metode SAW menghitung nilai preferensi berdasarkan hasil
+              normalisasi dan bobot setiap kriteria.
+            </p>
+            <div class="result-table">{{ hasil_saw|safe }}</div>
+          </div>
+          {% endif %}
+
+          {% if hasil_topsis %}
+          <div class="result-block">
+            <h2>Hasil Perhitungan Metode TOPSIS</h2>
+            <p>
+              Metode TOPSIS menghitung alternatif terbaik berdasarkan kedekatan
+              terhadap solusi ideal positif dan jarak terhadap solusi ideal
+              negatif.
+            </p>
+            <div class="result-table">{{ hasil_topsis|safe }}</div>
+          </div>
+          {% endif %}
+
+          {% else %}
+          <div class="info-empty">
+            Silakan upload file CSV data tembakau Kabupaten Jember untuk melihat
+            hasil perangkingan wilayah sentra produksi.
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
-    </div>
+    </section>
 
     <script>
       document
